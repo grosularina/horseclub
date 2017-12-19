@@ -36,30 +36,12 @@
         <link rel="apple-touch-icon-precomposed" sizes=«57x57» href="assets/ico/apple-touch-icon-57-precomposed1.png?v=2">
 
 
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
         <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
         <script type="text/javascript">
-        var myform = $("form#myform");
-myform.submit(function(event){
-	event.preventDefault();
-
-  // Change to your service ID, or keep using the default service
-  var service_id = "default_service";
-  var template_id = "my_template";
-
-  myform.find("button").text("Sending...");
-  emailjs.sendForm(service_id,template_id,"myform")
-  	.then(function(){
-    	alert("Sent!");
-       myform.find("button").text("Send");
-    }, function(err) {
-       alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
-       myform.find("button").text("Send");
-    });
-  return false;
-});
            (function(){
               emailjs.init("user_FJsOsfr4h5IMGDJtngp9L");
-              emailjs.sendForm("my_service","my_template","my_form");
            })();
         </script>
 
@@ -448,6 +430,16 @@ myform.submit(function(event){
         </div>
 
         <!-- Contact us -->
+
+        <form id="myform" method="post">
+        <label>reply_to</label>
+        <input type="text" name="reply_to" />
+        <br><br>
+        <button>
+        Send
+        </button>
+        </form>
+        
         <div class="contact-container section-container section-container-gray">
 	        <div class="container">
 	            <div class="row">
@@ -462,25 +454,26 @@ myform.submit(function(event){
 	            </div>
 	            <div class="row">
 	            	<div class="col-sm-12 contact-form wow fadeInLeft">
-	                    <form role="form" id="myform" method="post">
+	                    <form role="form" method="post">
 	                    	<div class="form-group">
 	                    		<label class="sr-only" for="contact-email">Электронная почта</label>
-	                        	<input type="text" name="email" placeholder="Электронная почта" class="contact-email" id="contact-email" required />
+	                        	<input type="text" name="email" placeholder="Электронная почта" class="contact-email" id="contact-email">
 	                        </div>
 	                        <div class="form-group">
 	                        	<label class="sr-only" for="contact-subject">Тема письма</label>
-	                        	<input type="text" name="subject" placeholder="Тема письма..." class="contact-subject" id="contact-subject" required />
+	                        	<input type="text" name="subject" placeholder="Тема письма..." class="contact-subject" id="contact-subject">
 	                        </div>
 	                        <div class="form-group">
 	                        	<label class="sr-only" for="contact-message">Ваше сообщение</label>
-	                        	<textarea name="message" placeholder="Ваше сообщение..." class="contact-message" id="contact-message" required></textarea />
+	                        	<textarea name="message" placeholder="Ваше сообщение..." class="contact-message" id="contact-message"></textarea>
 	                        </div>
-	                        <button type="submit" class=" btn submit">Отправить сообщение</button>
+	                        <button type="submit" class="btn">Отправить сообщение</button>
 	                    </form>
 	            	</div>
 	            </div>
 	        </div>
         </div>
+
 
         <!-- Scroll to top -->
         <div class="section-container section-container-gray">
