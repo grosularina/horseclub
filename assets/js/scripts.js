@@ -2,6 +2,7 @@
 /*
     Small slider 1
 */
+
 function small_slider_1(slider_container) {
 	var img_index = 1;
 	$('.' + slider_container + ' img').each(function(){
@@ -44,14 +45,17 @@ function scroll_to(clicked_link, nav_height) {
 	}
 }
 
+jQuery(document).ready(function($) {
+$('#lightSlider').lightSlider();
+});
 
 jQuery(document).ready(function() {
-    
+
     /*
         Wow
     */
     new WOW().init();
-    
+
     /*
 	    Navigation
 	*/
@@ -68,20 +72,20 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 		$('nav').slideUp(function(){ $('.show-menu a').fadeIn(); });
 	});
-    
+
     /*
         Fullscreen backgrounds
     */
     $('.top-content').backstretch("assets/img/backgrounds/1.jpg");
     $('.counters-container').backstretch("assets/img/backgrounds/2.jpg");
     $('.our-motto-container').backstretch("assets/img/backgrounds/2.jpg");
-	
+
 	/*
 	    Testimonials
 	*/
 	$('.testimonial-active').html('<p>' + $('.testimonial-single:first p').html() + '</p>');
 	$('.testimonial-single:first .testimonial-single-image img').css('opacity', '1');
-	
+
 	$('.testimonial-single-image img').on('click', function() {
 		$('.testimonial-single-image img').css('opacity', '0.5');
 		$(this).css('opacity', '1');
@@ -91,12 +95,12 @@ jQuery(document).ready(function() {
 			$(this).fadeIn(400);
 		});
 	});
-	
+
 	/*
 	    Small slider 1
 	*/
 	small_slider_1('slider-1-our-process');
-	
+
 	/*
 	    Contact form
 	*/
@@ -136,28 +140,28 @@ jQuery(document).ready(function() {
 	        }
 	    });
 	});
-    
+
 });
 
 
 
 jQuery(window).load(function() {
-	
+
 	/*
 		Loader
 	*/
 	$(".loader-img").fadeOut();
 	$(".loader").delay(1000).fadeOut("slow");
-	
+
 	/*
 	    Portfolio
 	*/
 	$('.portfolio-masonry').masonry({
-		columnWidth: '.portfolio-box', 
+		columnWidth: '.portfolio-box',
 		itemSelector: '.portfolio-box',
 		transitionDuration: '0.5s'
 	});
-	
+
 	$('.portfolio-filters a').on('click', function(e){
 		e.preventDefault();
 		if(!$(this).hasClass('active')) {
@@ -178,10 +182,10 @@ jQuery(window).load(function() {
 	    	}
 		}
 	});
-	
+
 	$(window).on('resize', function(){ $('.portfolio-masonry').masonry(); });
-	
-	// image popup	
+
+	// image popup
 	$('.portfolio-box-text').magnificPopup({
 		type: 'image',
 		gallery: {
@@ -201,6 +205,5 @@ jQuery(window).load(function() {
 			}
 		}
 	});
-	
-});
 
+});
