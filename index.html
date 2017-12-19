@@ -36,13 +36,6 @@
         <link rel="apple-touch-icon-precomposed" sizes=«57x57» href="assets/ico/apple-touch-icon-57-precomposed1.png?v=2">
 
 
-        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <script type="text/javascript">
-           (function(){
-              emailjs.init("user_FJsOsfr4h5IMGDJtngp9L");
-           })();
-        </script>
-
     </head>
 
     <body>
@@ -442,18 +435,18 @@
 	            </div>
 	            <div class="row">
 	            	<div class="col-sm-12 contact-form wow fadeInLeft">
-	                    <form role="form" action="assets/mail.php" method="post">
+	                    <form role="form" action="assets/mail2.php" method="post">
 	                    	<div class="form-group">
 	                    		<label class="sr-only" for="contact-email">Электронная почта</label>
-	                        	<input type="text" name="email" placeholder="Электронная почта" class="contact-email" id="contact-email">
+	                        	<input type="text" name="email" placeholder="Электронная почта" class="contact-email" id="contact-email" required />
 	                        </div>
 	                        <div class="form-group">
 	                        	<label class="sr-only" for="contact-subject">Тема письма</label>
-	                        	<input type="text" name="subject" placeholder="Тема письма..." class="contact-subject" id="contact-subject">
+	                        	<input type="text" name="subject" placeholder="Тема письма..." class="contact-subject" id="contact-subject" required />
 	                        </div>
 	                        <div class="form-group">
 	                        	<label class="sr-only" for="contact-message">Ваше сообщение</label>
-	                        	<textarea name="message" placeholder="Ваше сообщение..." class="contact-message" id="contact-message"></textarea>
+	                        	<textarea name="message" placeholder="Ваше сообщение..." class="contact-message" id="contact-message"></textarea required />
 	                        </div>
 	                        <button type="submit" class="btn">Отправить сообщение</button>
 	                    </form>
