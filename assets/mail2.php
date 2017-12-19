@@ -1,12 +1,19 @@
 <?php
 
-$recepient = "agragregra@ya.ru";
-$sitename = "Название сайта";
+/* Задаем переменные */
 
-$name = trim($_POST["name"]);
-$phone = trim($_POST["phone"]);
-$text = trim($_POST["text"]);
-$message = "Имя: $name \nТелефон: $phone \nТекст: $text";
+$email = htmlspecialchars($_POST["email"]);
+$subject = htmlspecialchars($_POST["subject"]);
+$message = htmlspecialchars($_POST["message"]);
 
-$pagetitle = "Новая заявка с сайта \"$sitename\"";
-mail($recepient, $pagetitle, $message, "Content-type: text/plain; charset=\"utf-8\"\n From: $recepient");
+/* Ваш адрес и тема сообщения */
+$address = "pochta@kakoy-to-sajt.com";
+$sub = "Сообщение с сайта ХХХ";
+
+/* Формат письма */
+$mes = "Сообщение с сайта ХХХ.\n
+Электронный адрес отправителя: $email
+$subject
+Текст сообщения:
+$message";
+?>
