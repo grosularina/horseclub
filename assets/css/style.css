@@ -499,18 +499,18 @@ nav a:focus { color: #eee; outline: 0; }
 body {
   font-family: arial;
   font-size: 12px;
-  color: #8ec1cd;
+  color: #666;
 }
 form {
   width: 500px;
-  background: grey;
-  padding: 30px 20px;
+  background: white;
+  padding: 20px 25px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 form input,
 form textarea {
-  font: arial;
+  font: inherit;
   padding: 5px 5px;
   width: 100%;
   margin-top: 3px;
@@ -519,18 +519,23 @@ form textarea {
 }
 form button {
   border: 2px solid rgba(0,0,0,0.2);
-  padding: 12px 100px;
-  font-size: 20px;
+  padding: 15px 79px;
+  font-size: 18px;
   background: #8ec1cd;
   color: white;
 }
 form label {
-  color: #8ec1cd;
-  font-size: 20px;
-  margin-bottom: 10px;
+
+	color: #8ec1cd;
+   font-size: 20px;
+   margin-bottom: 10px;
+   display: block;
+
+  color: #777;
+  font-size: 11px;
+  margin-bottom: 2px;
   display: block;
 }
- 
 
 
 /***** Footer *****/
