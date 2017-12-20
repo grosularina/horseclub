@@ -519,10 +519,10 @@ form textarea {
   box-sizing: border-box;
 }
 form button {
-  border: 1px solid rgba(0,0,0,0.2);
-  padding: 8px 35px;
-  font-size: 12px;
-  background: #888;
+  border: 2px solid rgba(0,0,0,0.2);
+  padding: 15px 79px;
+  font-size: 18px;
+  background: #8ec1cd;
   color: white;
 }
 form label {
