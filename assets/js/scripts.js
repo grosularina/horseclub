@@ -182,5 +182,3 @@ jQuery(window).load(function() {
 			}
 		}
 	});
-
-});
