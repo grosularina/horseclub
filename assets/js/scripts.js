@@ -183,4 +183,3 @@ jQuery(window).load(function() {
 		}
 	});
 	});
-	});
