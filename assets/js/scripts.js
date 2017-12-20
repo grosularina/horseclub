@@ -107,7 +107,7 @@ myform.submit(function(event){
 
   // Change to your service ID, or keep using the default service
   var service_id = "default_service";
-  var template_id = "last_template";
+  var template_id = "my_template";
 
   myform.find("button").text("Отправляется...");
   emailjs.sendForm(service_id,template_id,"myform")
