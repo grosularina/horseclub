@@ -525,16 +525,10 @@ form button {
   color: white;
 }
 form label {
-
-	color: #8ec1cd;
+  color: #8ec1cd;
 font-size: 20px;
 margin-bottom: 10px;
 display: block;
-
-  color: #777;
-  font-size: 11px;
-  margin-bottom: 2px;
-  display: block;
 }
 
 
