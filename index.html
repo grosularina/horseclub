@@ -424,26 +424,28 @@
 
         <!-- Contact us -->
 
-                  <form id="myform">
-             +<label>ваше имя</label>
-             +<input type="text" name="from_name" />
-             +<label>напишите нам</label>
-             +<input type="text" name="message_html" />
-             +<br><br>
-             +<button>
-             +Send
-             +</button>
-             +</form>
-             +
-             +<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-             +
-             +<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-             +<script type="text/javascript">
-             +   (function(){
-             +      emailjs.init("user_FJsOsfr4h5IMGDJtngp9L");
-             +   })();
-             +</script>
-	  
+        <form id="myform" method="post">
+      <label>Ваше имя</label>
+      <input type="text" name="from_name" />
+      <label>Ваша почта</label>
+      <input type="text" name="reply_to" />
+      <label>Ваше сообщение</label>
+      <input type="text" name="message_html" />
+      <br><br>
+      <button>
+      Отправить
+      </button>
+      </form>
+
+      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+      <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+      <script type="text/javascript">
+         (function(){
+            emailjs.init("user_FJsOsfr4h5IMGDJtngp9L");
+         })();
+      </script>
+
 
         <!-- Scroll to top -->
         <div class="section-container section-container-gray">
