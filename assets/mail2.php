@@ -19,8 +19,8 @@ $message";
 
 
 /* Отправляем сообщение, используя mail() функцию */
-$from  = "From: $name <$email> \r\n Reply-To: $email \r\n";
-if (mail($address, $sub, $mes)) {
+$from  = "From: $email <$email> \r\n Reply-To: $email \r\n";
+if (mail($email, $sub, $mes)) {
  header('Refresh: 5; URL=https://grosularina.github.io/horseclub/');
  echo '<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
