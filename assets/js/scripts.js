@@ -46,12 +46,12 @@ function scroll_to(clicked_link, nav_height) {
 
 
 jQuery(document).ready(function() {
-    
+
     /*
         Wow
     */
     new WOW().init();
-    
+
     /*
 	    Navigation
 	*/
@@ -68,20 +68,20 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 		$('nav').slideUp(function(){ $('.show-menu a').fadeIn(); });
 	});
-    
+
     /*
         Fullscreen backgrounds
     */
     $('.top-content').backstretch("assets/img/backgrounds/1.jpg");
     $('.counters-container').backstretch("assets/img/backgrounds/2.jpg");
     $('.our-motto-container').backstretch("assets/img/backgrounds/2.jpg");
-	
+
 	/*
 	    Testimonials
 	*/
 	$('.testimonial-active').html('<p>' + $('.testimonial-single:first p').html() + '</p>');
 	$('.testimonial-single:first .testimonial-single-image img').css('opacity', '1');
-	
+
 	$('.testimonial-single-image img').on('click', function() {
 		$('.testimonial-single-image img').css('opacity', '0.5');
 		$(this).css('opacity', '1');
@@ -91,13 +91,14 @@ jQuery(document).ready(function() {
 			$(this).fadeIn(400);
 		});
 	});
-	
+
 	/*
 	    Small slider 1
 	*/
 	small_slider_1('slider-1-our-process');
-	
+
 	/*
+
 	    Contact form
 	*/
 	$('.contact-form form input[type="text"], .contact-form form textarea').on('focus', function() {
@@ -109,7 +110,6 @@ jQuery(document).ready(function() {
 	    var postdata = $('.contact-form form').serialize();
 	    $.ajax({
 	        type: 'POST',
-	        url: 'assets/contact.php',
 	        data: postdata,
 	        dataType: 'json',
 	        success: function(json) {
@@ -136,28 +136,28 @@ jQuery(document).ready(function() {
 	        }
 	    });
 	});
-    
+
 });
 
 
 
 jQuery(window).load(function() {
-	
+
 	/*
 		Loader
 	*/
 	$(".loader-img").fadeOut();
 	$(".loader").delay(1000).fadeOut("slow");
-	
+
 	/*
 	    Portfolio
 	*/
 	$('.portfolio-masonry').masonry({
-		columnWidth: '.portfolio-box', 
+		columnWidth: '.portfolio-box',
 		itemSelector: '.portfolio-box',
 		transitionDuration: '0.5s'
 	});
-	
+
 	$('.portfolio-filters a').on('click', function(e){
 		e.preventDefault();
 		if(!$(this).hasClass('active')) {
@@ -178,10 +178,10 @@ jQuery(window).load(function() {
 	    	}
 		}
 	});
-	
+
 	$(window).on('resize', function(){ $('.portfolio-masonry').masonry(); });
-	
-	// image popup	
+
+	// image popup
 	$('.portfolio-box-text').magnificPopup({
 		type: 'image',
 		gallery: {
@@ -201,6 +201,25 @@ jQuery(window).load(function() {
 			}
 		}
 	});
-	
+
 });
 
+var myform = $("form#myform");
+myform.submit(function(event){
+	event.preventDefault();
+
+  // Change to your service ID, or keep using the default service
+  var service_id = "default_service";
+  var template_id = "my_template";
+
+  myform.find("button").text("Отправление...");
+  emailjs.sendForm(service_id,template_id,"myform")
+  	.then(function(){
+    	alert("Ваше сообщение отправлено");
+       myform.find("button").text("Отправить");
+    }, function(err) {
+       alert("К сожалению, не удалось отправить сообщение!\r\n Response:\n " + JSON.stringify(err));
+       myform.find("button").text("Отправить");
+    });
+  return false;
+});
