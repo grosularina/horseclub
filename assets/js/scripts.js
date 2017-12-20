@@ -101,44 +101,25 @@ jQuery(document).ready(function() {
 
 	    Contact form
 	*/
-	$('.contact-form form input[type="text"], .contact-form form textarea').on('focus', function() {
-		$('.contact-form form input[type="text"], .contact-form form textarea').removeClass('contact-error');
-	});
-	$('.contact-form form').submit(function(e) {
-		e.preventDefault();
-	    $('.contact-form form input[type="text"], .contact-form form textarea').removeClass('contact-error');
-	    var postdata = $('.contact-form form').serialize();
-	    $.ajax({
-	        type: 'POST',
-	        data: postdata,
-	        dataType: 'json',
-	        success: function(json) {
-	            if(json.emailMessage != '') {
-	                $('.contact-form form .contact-email').addClass('contact-error animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-            			$(this).removeClass('animated shake');
-            		});
-	            }
-	            if(json.subjectMessage != '') {
-	                $('.contact-form form .contact-subject').addClass('contact-error animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-            			$(this).removeClass('animated shake');
-            		});
-	            }
-	            if(json.messageMessage != '') {
-	                $('.contact-form form textarea').addClass('contact-error animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-            			$(this).removeClass('animated shake');
-            		});
-	            }
-	            if(json.emailMessage == '' && json.subjectMessage == '' && json.messageMessage == '') {
-	                $('.contact-form form').fadeOut('fast', function() {
-	                    $('.contact-form').append('<p>Thanks for contacting us! We will get back to you very soon.</p>');
-	                });
-	            }
-	        }
-	    });
-	});
+	var myform = $("form#myform");
+myform.submit(function(event){
+	event.preventDefault();
 
+  // Change to your service ID, or keep using the default service
+  var service_id = "default_service";
+  var template_id = "last_template";
+
+  myform.find("button").text("Отправляется...");
+  emailjs.sendForm(service_id,template_id,"myform")
+  	.then(function(){
+    	alert("Ваше сообщение отправлено!");
+       myform.find("button").text("Отправить");
+    }, function(err) {
+       alert("Что-то пошло не так!\r\n Response:\n " + JSON.stringify(err));
+       myform.find("button").text("Отправить");
+    });
+  return false;
 });
-
 
 
 jQuery(window).load(function() {
@@ -202,24 +183,4 @@ jQuery(window).load(function() {
 		}
 	});
 
-});
-
-var myform = $("form#myform");
-myform.submit(function(event){
-	event.preventDefault();
-
-  // Change to your service ID, or keep using the default service
-  var service_id = "default_service";
-  var template_id = "my_template";
-
-  myform.find("button").text("Отправление...");
-  emailjs.sendForm(service_id,template_id,"myform")
-  	.then(function(){
-    	alert("Ваше сообщение отправлено");
-       myform.find("button").text("Отправить");
-    }, function(err) {
-       alert("К сожалению, не удалось отправить сообщение!\r\n Response:\n " + JSON.stringify(err));
-       myform.find("button").text("Отправить");
-    });
-  return false;
 });
