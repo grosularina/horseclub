@@ -102,25 +102,24 @@ jQuery(document).ready(function() {
 	*/
 
 	var myform = $("form#myform");
-		myform.submit(function(event){
-			event.preventDefault();
+myform.submit(function(event){
+	event.preventDefault();
 
-		  // Change to your service ID, or keep using the default service
-		  var service_id = "default_service";
-		  var template_id = "my_template";
+  // Change to your service ID, or keep using the default service
+  var service_id = "default_service";
+  var template_id = "my_template";
 
-		  myform.find("button").text("Отправляется...");
-		  emailjs.sendForm(service_id,template_id,"myform")
-		  	.then(function(){
-		    	alert("Ваше сообщение отправлено!");
-		       myform.find("button").text("Отправить");
-		    }, function(err) {
-		       alert("Что-то пошло не так!\r\n Response:\n " + JSON.stringify(err));
-		       myform.find("button").text("Отправить");
-		    });
-		  return false;
-		});
-
+  myform.find("button").text("Отправляется...");
+  emailjs.sendForm(service_id,template_id,"myform")
+  	.then(function(){
+    	alert("Отправлено!");
+       myform.find("button").text("Отправить");
+    }, function(err) {
+       alert("Что-то пошло не так((\r\n Response:\n " + JSON.stringify(err));
+       myform.find("button").text("Отправить");
+    });
+  return false;
+});
 
 
 
