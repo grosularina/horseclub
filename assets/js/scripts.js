@@ -100,6 +100,30 @@ jQuery(document).ready(function() {
 	/*
 	    Contact form
 	*/
+
+	var myform = $("form#myform");
+		myform.submit(function(event){
+			event.preventDefault();
+
+		  // Change to your service ID, or keep using the default service
+		  var service_id = "default_service";
+		  var template_id = "myy_template";
+
+		  myform.find("button").text("Отправляется...");
+		  emailjs.sendForm(service_id,template_id,"myform")
+		  	.then(function(){
+		    	alert("Ваше сообщение отправлено!");
+		       myform.find("button").text("Отправить");
+		    }, function(err) {
+		       alert("Что-то пошло не так!\r\n Response:\n " + JSON.stringify(err));
+		       myform.find("button").text("Отправить");
+		    });
+		  return false;
+		});
+
+
+
+
 	$('.contact-form form input[type="text"], .contact-form form textarea').on('focus', function() {
 		$('.contact-form form input[type="text"], .contact-form form textarea').removeClass('contact-error');
 	});
