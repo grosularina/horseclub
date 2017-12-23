@@ -548,3 +548,35 @@ footer {
 
 .footer-social a { margin: 0 8px; font-size: 39px; color: #ddd; }
 .footer-social a:hover, .footer-social a:focus { color: #ddd; opacity: 0.6; }
+
+
+
+
+.back_img {
+  width: 100%;
+  height: 100%;
+  position: relactive;
+}
+
+.hotspot {
+  position: absolute;
+  z-index: 10;
+}
+
+.hotspot-icon {
+  color: white;
+  font-size: 1,5 em;
+}
+
+.container {
+  display: none;
+  position: absolute;
+  font-family: 'Roboto';
+  font-size: 1em;
+  background-color: #FFFFFF;
+  padding: 10px 12px 10px;
+  height: 1em;
+  text-align: center;
+  border-radius: 1px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5) !important;
+}
